@@ -1,0 +1,80 @@
+.pack {
+    text-align: center;
+    border: 1px solid #be6edd21;
+    border-radius: 5px;
+    overflow: hidden;
+    width: 300px;
+    height: 425px;
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    /* Supprime tout padding éventuel */
+    margin: 0;
+    /* Supprime tout margin éventuel */
+}
+
+.pack-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    flex-grow: 1;
+    margin: 0;
+    padding: 0;
+    display: block;
+}
+
+.pack-title {
+    background-color: #be6edd21;
+    color: white;
+    padding: 15px;
+    font-size: 20px;
+    font-weight: bold;
+    flex-shrink: 0;
+    /* Empêche le titre de réduire sa taille */
+}
+
+.packs-container {
+    display: flex;
+    /* Aligne les cartes horizontalement */
+    flex-wrap: wrap;
+    /* Permet de passer à la ligne si nécessaire */
+    justify-content: center;
+    /* Centre les cartes horizontalement */
+    gap: 80px;
+    /* Augmente l'espace entre les cartes */
+    margin-top: 100px;
+    /* Ajoute un espacement en haut */
+}
+
+.pack-footer {
+    background-color: #be6edd21;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    /* Empile les éléments verticalement */
+    justify-content: center;
+    /* Centre verticalement */
+    align-items: center;
+    /* Centre horizontalement */
+}
+
+.pack-price {
+    font-size: 18px;
+    font-weight: bold;
+    color: white;
+    margin-bottom: 5px;
+}
+
+.pack-button {
+    background-color: #bd50e891;
+    color: white;
+    border-radius: 12px;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.pack-button:hover {
+    background-color: #450a5cc2;
+}

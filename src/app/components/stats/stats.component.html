@@ -1,0 +1,31 @@
+<mat-form-field appearance="fill" class="deck-selector selectionDeck">
+  <mat-label>Choisissez un Deck</mat-label>
+  <mat-select [(value)]="selectedDeck" (selectionChange)="updateGraphs()">
+    <mat-option [value]="null">Toutes les cartes</mat-option>
+    <mat-option *ngFor="let deck of decks" [value]="deck">
+      {{ deck.name }}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
+
+
+<div class="defaiteVictoireText">Nombre de victoires : <span class="vert">{{currentVictoires()}}</span></div>
+
+<div class="defaiteVictoireText">Nombre de défaites : <span class="rouge">{{currentDefaites()}}</span></div>
+
+<div class="charts-row">
+  <div>
+    <canvasjs-chart [options]="coutMana" [styles]="{width: '100%', height:'360px'}"
+      (chartInstance)="getCoutManaChartInstance($event)"></canvasjs-chart>
+  </div>
+
+  <div>
+    <canvasjs-chart [options]="cartesParRarete" [styles]="{width: '100%', height:'360px'}"
+      (chartInstance)="getCarteParRareteChartInstance($event)"></canvasjs-chart>
+  </div>
+</div>
+
+<div>
+  <canvasjs-chart [options]="attaqueDefense" [styles]="{width: '100%', height:'360px'}"
+    (chartInstance)="getAttaqueDefenseChartInstance($event)"></canvasjs-chart>
+</div>

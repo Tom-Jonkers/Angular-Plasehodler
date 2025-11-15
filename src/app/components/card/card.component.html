@@ -1,0 +1,43 @@
+@if (show=='front') {
+<mat-card class="infinite-card">
+  <mat-card-header [ngClass]="'rarete-' + card?.rarete">
+    <div mat-card-avatar class="infinite-card-mana-cost">
+      {{card?.cost}} <i class="fas fa-gem"></i>
+    </div>
+    <mat-card-title>{{card?.name}}</mat-card-title>
+  </mat-card-header>
+  <mat-card-content class="infinite-card-content" style="background-image: url({{card?.imageUrl}});">
+    <table style="font-size: 2em; font-size: 2em; width: fit-content; text-shadow: 2px 2px 2px black;">
+      @for(cardPower of card?.cardPowers; track cardPower){
+      <tr>
+        <td (click)="playAnimation(cardPower.power.id)" [@thorns]="ng_thorns" [@assault]="ng_assault" [@flip]="ng_flip"
+          [@jello]="ng_jello">
+          {{cardPower.power.icone}}</td>
+        <td>{{cardPower.value}}</td>
+      </tr>
+      }
+      <tr>
+        <td><i class="fas fa-fist-raised"></i></td>
+        <td>{{card?.attack}}</td>
+      </tr>
+      <tr>
+        <td><i class="fa-solid fa-heart"></i></td>
+        <td>{{card?.health}}</td>
+      </tr>
+
+    </table>
+  </mat-card-content>
+  @if (showRemoveButton) {
+  <mat-card-actions align="end">
+    <button mat-button color="warn" (click)="onRemoveClick(); $event.stopPropagation()">
+      <mat-icon>remove_circle</mat-icon> Retirer
+    </button>
+  </mat-card-actions>
+  }
+</mat-card>
+}
+
+@if (show=='back') {
+<mat-card class="infinite-card" style="background-image: url({{beautifulBackUrl}});">
+</mat-card>
+}

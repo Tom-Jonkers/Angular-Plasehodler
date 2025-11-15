@@ -1,0 +1,31 @@
+.grayout {
+    background: rgba(0, 0, 0, 0.5);
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    z-index: 9999;
+}
+
+.popup {
+    display: flex;
+    flex-wrap: wrap;
+    position: fixed;
+    width: 256px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #110e10f3;
+    justify-content: center;
+    border-radius: 16px;
+    padding: 64px;
+}
+
+.popup p {
+    font-size: 24px;
+    text-align: center;
+}
+
+.popup img {
+    width: 75%;
+    margin-bottom: 32px;
+}

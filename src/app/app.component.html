@@ -1,0 +1,59 @@
+@if (matchService.match == null) {
+<mat-toolbar style="display: flex;">
+
+  <a (click)="routeHome()"><img src="assets/logo.png"></a>
+  <span style="flex: 1 1 auto;">
+    @if (isLogged()) {
+    <button (click)="routeInventory()" mat-raised-button>Mes cartes</button>
+    <button (click)="routeDeck()" mat-raised-button>Mes decks</button>
+    
+    <button (click)="routeStore()" mat-raised-button>Magasin</button>
+
+    <button (click)="routePacks()" mat-raised-button>Packs</button>
+    <button (click)="routeSpectate()" mat-raised-button>Visionner</button>
+    <button (click)="routeStats()" mat-raised-button>Stats</button>
+    }
+  </span>
+  @if (isLogged()) {
+  <mat-chip style="margin-right: 20px; display: flex; align-items: center;">
+    <span style="display: flex; align-items: center;  justify-content: center;">
+      {{getMoney()}}
+      <img src="assets/francoisLego.png" style="width: 20px; height: 20px; margin-left: 5px; padding-right: 0;" />
+    </span>
+  </mat-chip>
+  <mat-chip style="margin-right: 20px; display: flex; align-items: center;">
+    <span style="display: flex; align-items: center;  justify-content: center;">
+      {{elo}}
+      @if (elo >= 1000){
+      <img src="assets/elo.png" style="width: 20px; height: 20px; margin-left: 5px; padding-right: 0;" />
+      }
+      @else {
+      <img src="assets/bad_elo.webp" style="width: 20px; height: 20px; margin-left: 5px; padding-right: 0;" />
+      }
+    </span>
+  </mat-chip>
+  }
+  @if (isLogged()) {
+  <mat-chip style="margin-right: 20px;">
+    {{getUsername()}}
+  </mat-chip>
+  }
+  @if (isLogged()) {
+  <button mat-raised-button color="warn" (click)="logout()">Se déconnecter</button>
+  }
+  @if (!isLogged()) {
+  <button mat-raised-button (click)="goToLogin()">Se connecter</button>
+  <button mat-raised-button (click)="goToRegister()">S'enregistrer</button>
+  }
+</mat-toolbar>
+@if (isLogged()) {
+<div>
+  <button mat-raised-button color="primary" (click)="privateData()">Fruits</button>
+</div>
+<div>
+  {{result}}
+</div>
+}
+}
+
+<router-outlet></router-outlet>

@@ -1,0 +1,121 @@
+@if(!this.spectate){
+
+
+<div class="board" style="height: 100%;background-image: url('/assets/nouveauBoard.png'); background-size: cover;">
+  <div style="height: 45%;">
+    <h1 style="position: absolute;">Adversaire</h1>
+    @if (matchService.adversaryData) {
+    <div>
+      <app-battlefield [cards]="matchService.adversaryData.battleField"></app-battlefield>
+      <app-enemyhand [cards]="matchService.adversaryData.hand"></app-enemyhand>
+    </div>
+    }
+  </div>
+  <div style="height: 45%;">
+    <h1 style="position: absolute;">Mon jeu</h1>
+    @if (matchService.playerData) {
+    <div>
+      <app-battlefield [cards]="matchService.playerData.battleField"></app-battlefield>
+    </div>
+    }
+
+  </div>
+
+</div>
+@if (matchService.playerData) {
+<div>
+  <app-playerhand [cards]="matchService.playerData.hand"></app-playerhand>
+  <button mat-raised-button [disabled]="!matchService.isCurrentPlayerTurn" class="endturn" color="accent"
+    style="margin-right: 20px;" (click)="endTurn()">Terminer</button>
+  <button mat-raised-button class="surrender" color="warn" style="margin-right: 20px;"
+    (click)="surrender()">Abandonner</button>
+  <app-health [enemy]="true" [maxhealth]="matchService.adversaryData!.maxhealth"
+    [health]="matchService.adversaryData!.health" [mana]="matchService.adversaryData!.mana"
+    [playername]="matchService.adversaryData!.playerName"></app-health>
+  <app-health [maxhealth]="matchService.playerData!.maxhealth" [health]="matchService.playerData!.health"
+    [mana]="matchService.playerData!.mana" [playername]="matchService.playerData!.playerName"></app-health>
+</div>
+}
+
+@if (isMatchCompleted())
+{
+<div class="end">
+  @if (isVictory())
+  {
+  <p>VICTOIRE</p>
+  <div style="display: flex; align-items: center; justify-content: center; font-size: 100px; padding-bottom: 30px;">
+    <span>Vous avez gagné {{matchService.moneyByWinner?.toString()}}</span>
+    <img src="assets/francoisLego.png" style="width: 100px; height: 100px; margin-left: 10px;" />
+  </div>
+  <div style="display: flex; align-items: center; justify-content: center; font-size: 100px; padding-bottom: 30px;">
+    <span>+{{matchService.ELObyWinner?.toString()}} social credit</span>
+    <img src="assets/elo.png" style="width: 100px; height: 100px; margin-left: 10px;" />
+  </div>
+
+  <img src="assets/win.jpg">
+  }
+  @else
+  {
+  <p>DÉFAITE</p>
+  <div style="display: flex; align-items: center; justify-content: center; font-size: 100px; padding-bottom: 30px;">
+    <span>Vous avez gagné {{matchService.moneyByLoser?.toString()}}</span>
+    <img src="assets/francoisLego.png" style="width: 100px; height: 100px; margin-left: 10px;" />
+  </div>
+  <div style="display: flex; align-items: center; justify-content: center; font-size: 100px; padding-bottom: 30px;">
+    <span>{{matchService.ELObyLoser?.toString()}} social credit</span>
+    <img src="assets/bad_elo.webp" style=" width: 100px; height: 100px; margin-left: 10px;" />
+  </div>
+  <img src="assets/loss.jpg">
+  }
+  <br>
+  <button mat-raised-button color="accent" (click)="endMatch()">Accueil</button>
+
+</div>
+}
+<app-chat class="chat"></app-chat>
+}
+
+
+@if(this.spectate){
+
+<div class="board" style="height: 100%;background-image: url('/assets/nouveauBoard.png'); background-size: cover;">
+  <div style="height: 45%;">
+    <h1 style="position: absolute;">Joueur 2</h1>
+    @if (matchService.adversaryData) {
+    <div>
+      <app-battlefield [cards]="matchService.adversaryData.battleField"></app-battlefield>
+      <app-enemyhand [cards]="matchService.adversaryData.hand"></app-enemyhand>
+    </div>
+    }
+  </div>
+  <div style="height: 45%;">
+    <h1 style="position: absolute;">Joueur 1</h1>
+    @if (matchService.playerData) {
+    <div>
+      <app-battlefield [cards]="matchService.playerData.battleField"></app-battlefield>
+    </div>
+    }
+
+  </div>
+
+</div>
+@if (matchService.playerData) {
+<div>
+  <app-playerhand [cards]="matchService.playerData.hand" [back]="true"></app-playerhand>
+  <button mat-raised-button color="accent" (click)="home()">Menu</button>
+  <app-health [enemy]="true" [maxhealth]="matchService.adversaryData!.maxhealth"
+    [health]="matchService.adversaryData!.health" [mana]="matchService.adversaryData!.mana"
+    [playername]="matchService.adversaryData!.playerName"></app-health>
+  <app-health [maxhealth]="matchService.playerData!.maxhealth" [health]="matchService.playerData!.health"
+    [mana]="matchService.playerData!.mana" [playername]="matchService.playerData!.playerName"></app-health>
+</div>
+
+@if (isMatchCompleted()){
+<div>
+  <a>c fini waaaa</a><br>
+  <button mat-raised-button color="accent" (click)="home()">va chez toi idiot</button>
+</div>
+}
+}
+<app-chat class="chat"></app-chat>
+}

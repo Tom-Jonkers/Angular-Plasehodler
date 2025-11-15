@@ -1,0 +1,51 @@
+.dialog-container {
+    background-color: #be6edd21;
+    border-radius: 16px;
+    padding: 30px;
+    color: white;
+    text-align: center;
+    display: inline-block;
+}
+
+.dialog-title {
+    font-size: 28px;
+    font-weight: 600;
+    margin-bottom: 25px;
+    color: white;
+}
+
+.cards-wrapper {
+    display: flex;
+    flex-direction: row;
+    gap: 70px;
+    /* espace entre les cartes */
+    align-items: flex-start;
+    width: auto;
+    /* important pour que ça s'ajuste à la taille des cartes */
+}
+
+.card-item {
+    flex: 0 1 250px;
+    max-width: 250px;
+    transition: transform 0.3s ease;
+}
+
+.card-item:hover {
+    transform: scale(1.05);
+}
+
+button {
+    background-color: #bd50e891;
+    color: white;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 12px;
+    padding: 10px 20px;
+    margin: 20px;
+    transition: background-color 0.3s ease;
+}
+
+
+button:hover {
+    background-color: #450a5cc2;
+}

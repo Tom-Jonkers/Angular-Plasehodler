@@ -1,0 +1,58 @@
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.infinite-card {
+  width: 250px;
+  height: 300px;
+  background-size: cover;
+  background-position: center;
+}
+
+.red {
+  color: red;
+}
+
+.infinite-card-content {
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: column;
+  align-content: center;
+  height: 100%;
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.infinite-card-mana-cost {
+  background-size: cover;
+  font-size: 20px;
+  margin-bottom: 0px;
+}
+
+.rarete-0 {
+  background-color: rgb(10, 152, 10);
+  color: white;
+}
+
+.rarete-1 {
+  background-color: rgb(14, 14, 150);
+  color: white;
+}
+
+.rarete-2 {
+  background-color: rgb(104, 6, 104);
+  color: white;
+}
+
+.rarete-3 {
+  background-color: rgb(198, 133, 11);
+  color: white;
+}

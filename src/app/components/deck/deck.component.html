@@ -1,0 +1,48 @@
+<div class="container">
+  <div class="create-deck-container">
+    <button mat-raised-button color="primary" (click)="createNewDeck()">
+      <mat-icon>add</mat-icon> Ajouter un deck
+    </button>
+  </div>
+
+  @for (deck of decks; track $index) {
+    <div class="decks-container">
+      <div class="deck-row">
+        <div class="deck-name">{{deck.name}}</div>
+        @if (deck.isCurrent) {
+          <div class="deck-current-badge">
+            Deck courant
+          </div>
+        }
+        @else {
+          <button mat-icon-button color="primary" (click)="setCurrentDeck(deck.id)" aria-label="Définir comme deck courant">
+            <mat-icon>check</mat-icon>
+          </button>
+
+          <button mat-icon-button color="warn" (click)="deleteDeck(deck.id)" aria-label="Supprimer le deck">
+            <mat-icon>delete</mat-icon>
+          </button>
+        }
+
+        <button mat-icon-button color="accent" [matMenuTriggerFor]="addCardMenu" (click)="openAddCardMenu(deck.id)" aria-label="Ajouter une carte">
+          <mat-icon>add_circle</mat-icon>
+        </button>
+
+        <mat-menu #addCardMenu="matMenu">
+          <div class="menu-header">Ajouter une carte au deck</div>
+          @if (availableCards.length === 0) {
+            <button mat-menu-item disabled>Aucune carte disponible</button>
+          }
+          @for (oc of availableCards; track oc.id) {
+            <app-card [card]="oc.card" (click)="addCardToDeck(oc.id)"></app-card>
+          }
+        </mat-menu>
+      </div>
+      <div class="cards-container">
+        @for (oc of deck.ownedCards; track $index) {
+          <app-card [card]="oc.card" [showRemoveButton]="true" (remove)="removeCardFromDeck(deck.id, oc.id)"></app-card>
+        }
+      </div>
+    </div>
+  }
+</div>

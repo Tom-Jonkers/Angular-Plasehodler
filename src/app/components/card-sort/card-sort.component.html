@@ -1,0 +1,43 @@
+<div class="sortOptions">
+    <mat-form-field>
+        <mat-label>Champ</mat-label>
+        <mat-select [(value)]="fieldSelect">
+            @for (field of fields; track field) {
+            <mat-option (click)="updateSort()" [value]="field.value">{{field.viewValue}}</mat-option>
+            }
+        </mat-select>
+
+
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>Ordre</mat-label>
+        <mat-select [(value)]="orderSelect">
+            @for (field of order; track field) {
+            <mat-option (click)="updateSort()" [value]="field.value">{{field.viewValue}}</mat-option>
+            }
+        </mat-select>
+    </mat-form-field>
+</div>
+
+<div class="secondaryContainer">
+    @for (card of cardList; track card.name){
+    <app-card [card]="card"></app-card>
+    <!-- CARTE PERSO <div class="card">
+                <div class="name">
+                    <p>
+                        {{card.name}}
+                    </p>
+                </div>
+                <div class="cardImg">
+                    <img src="{{card.imageUrl}}">
+                </div>
+    
+                <div class="stats">
+                    <p>✊{{card.attack}}</p>
+                    <p>💖{{card.health}}</p>
+                    <p>🌟{{card.cost}}</p>
+                </div>
+    
+            </div> -->
+    }
+</div>

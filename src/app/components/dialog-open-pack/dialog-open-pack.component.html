@@ -1,0 +1,7 @@
+<div class="dialog-container">
+    <h2 class="dialog-title">Cartes reçues</h2>
+    <div class="cards-wrapper">
+        <app-card *ngFor="let card of data.cards" [card]="card" class="card-item"></app-card>
+    </div>
+    <button mat-raised-button color="primary" (click)="close()">Fermer</button>
+</div>

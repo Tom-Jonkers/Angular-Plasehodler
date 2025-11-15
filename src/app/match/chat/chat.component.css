@@ -1,0 +1,35 @@
+.chat {
+    color: black;
+    background-color: white;
+    width: 300px;
+    height: 750px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+}
+.formulaire {
+    justify-content: space-between;
+    display: flex;
+    padding: 5px;
+}
+.utilisateurs {
+    background-color: rgb(173, 250, 255); 
+    display:flex;
+    justify-content: space-between;
+    flex-direction: column;
+}
+
+.utilisateurs > div {
+    padding:2px;
+}
+
+.message {
+    padding-left: 5px;
+}
+
+.boutons {
+    border-radius: 50px;
+    border:none;
+}

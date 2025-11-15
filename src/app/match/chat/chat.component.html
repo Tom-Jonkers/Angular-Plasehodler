@@ -1,0 +1,64 @@
+@if(!this.spectate){
+<div class="chat">
+    <div>
+        <div class="message">bob: t nul et laid</div>
+        @for (message of messages; track message) {
+        <div class="message">{{message.pseudo}}: {{message.message}}</div>
+        }
+    </div>
+
+
+    <div class="groupe">
+        <div class="utilisateurs">
+            <div>
+                🎮 Nom <button style="background-color: green;" type="input" class="boutons">💬</button>
+            </div>
+            <div>
+                🎮 Nom <button style="background-color: red;" type="input" class="boutons">💬</button>
+            </div>
+            <div>
+                👀 Nom <button style="background-color: green;" type="input" class="boutons">💬</button> <button
+                    style="background-color: rgb(197, 60, 224);" type="input" class="boutons">🚫</button>
+            </div>
+        </div>
+
+        <div class="formulaire">
+            <input #message type="text" style="width: 100%;" placeholder="Message">
+            <button (click)="sendMessage(message.value)" type="input">Envoyer</button>
+        </div>
+    </div>
+</div>
+}
+
+
+@if(this.spectate){
+<div class="chat">
+    <div>
+        <div class="message">bob: t nul et laid</div>
+        @for (message of messages; track message) {
+        <div class="message">{{message.pseudo}}: {{message.message}}</div>
+        }
+    </div>
+
+
+    <div class="groupe">
+        <div class="utilisateurs">
+            <div>
+                🎮 Nom <button style="background-color: green;" type="input" class="boutons">💬</button>
+            </div>
+            <div>
+                🎮 Nom <button style="background-color: red;" type="input" class="boutons">💬</button>
+            </div>
+            <div>
+                👀 Nom <button style="background-color: green;" type="input" class="boutons">💬</button> <button
+                    style="background-color: rgb(197, 60, 224);" type="input" class="boutons">🚫</button>
+            </div>
+        </div>
+
+        <div class="formulaire">
+            <input #message type="text" style="width: 100%;" placeholder="Message">
+            <button (click)="sendMessage(message.value)" type="input">Envoyer</button>
+        </div>
+    </div>
+</div>
+}

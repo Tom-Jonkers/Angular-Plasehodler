@@ -1,0 +1,22 @@
+.mainContainer {
+    background-color: #be6edd21;
+    margin: 5% 10%;
+    padding: 2.5%;
+    border-radius: 16px
+}
+
+.header {
+    justify-content: space-around;
+    display: flex;
+    background-color: #be6edd21;
+    border-bottom: white 2px solid;
+}
+
+.listeMatch {
+    justify-content: space-around;
+    display: flex;
+}
+
+table {
+    width: 100%;
+}

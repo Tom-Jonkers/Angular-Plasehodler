@@ -1,0 +1,30 @@
+<div class="mainContainer">
+    <h1>Parties à visionner</h1>
+
+    <table>
+        <tr class="header">
+            <th>Joueur A</th>
+            <th>Joueur B</th>
+            <th>Action</th>
+        </tr>
+        @for(match of matches; track $index)
+        {
+        <tr class="listeMatch">
+            <td>{{match.playerNameA}}</td>
+            <td>{{match.playerNameB}}</td>
+            <td>
+                @if(this.onlineUserId != match.userIdA && this.onlineUserId != match.userIdB){
+                <button (click)="spectateMatch(match.id)">Visionner</button>
+                }
+            </td>
+        </tr>
+        }
+        @if(!matches.length){
+        <tr>
+            <td style="text-align: center; column-span: 3;">Aucunes parties en cours</td>
+        </tr>
+        }
+
+    </table>
+</div>
+

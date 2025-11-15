@@ -1,0 +1,13 @@
+<div class="grayout" *ngIf="matchmaking">
+  <div class="popup">
+    <p>Recherche d'un adversaire...</p>
+    <img src="assets/roulette-spin.gif">
+    <button mat-raised-button color="warn" (click)="cancel()">Annuler</button>
+  </div>
+</div>
+<div style="display: flex; margin: 20px; justify-content: center;">
+  @if (isLogged()) {
+  <button mat-raised-button color="accent" style="margin-right: 20px;" (click)="joinMatch()">Joindre une partie</button>
+  }
+</div>
+<router-outlet></router-outlet>
