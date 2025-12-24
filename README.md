@@ -1,3 +1,7 @@
+Remarque: Je suis conscient que le nom « Plasehodler » est mal orthographié ; c’est simplement le nom que mon équipe et moi avons donné au jeu de cartes. C’est un choix intentionnel.
+
+
+
 # Supercartesinfinies
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.1.3.
